@@ -1,0 +1,84 @@
+@page "/Clients"
+@using AuthenCard.Models
+@using AuthenCard.Controller
+@using System.Net.Http.Json
+@inject HttpClient Http
+@rendermode InteractiveServer
+
+<PageTitle>scan CID card</PageTitle>
+@* <input value="@InputValue" @onchange="((ChangeEventArgs __e) => InputValue = __e?.Value?.ToString())"> *@
+ <button class="btn btn-primary" @onclick="Click" >สแกนบัตร</button> 
+
+    @if(cids == null)
+    {
+        <p><em>Loading....</em></p>
+    }
+    else
+    {
+        <table class="table">
+    @* <thead>
+        <th>เลขบัตรประจำตัวประชาชน</th>
+        <th>คำนำหน้า</th>
+        <th>ชื่อ</th>
+        <th>นามสกุล</th>
+        <th>เลขบัตรประจำตัวประชาชน</th>
+        <th>เพศ</th>
+    </thead> *@
+    <tbody>
+        @* @foreach(var client in cids)
+        {
+            <tr>
+                <td>@client.pid</td>
+                <td>@client.titleName</td>
+                <td>@client.fname</td>
+                <td>@client.lname</td>
+                <td>@client.birthDate</td>
+                <td>@client.sex</td>
+            </tr>
+        } *@
+        <div class="row">
+            <EditForm Model="@cids">
+                <div class="form-group">
+                    <label for="Name">เลขบัตรประชาชน</label>
+                    <InputText class="form-control" @bind-Value="cids.pid"/>
+                </div>
+                <div class="form-group">
+                    <label for="Name">คำนำหน้า</label>
+                    <InputText class="form-control" @bind-Value="cids.titleName"/>
+                </div>
+                <div class="form-group">
+                    <label for="Name">ชื่อ</label>
+                    <InputText class="form-control" @bind-Value="cids.fname"/>
+                </div>
+                <div class="form-group">
+                    <label for="Name">นามสกุล</label>
+                    <InputText class="form-control" @bind-Value="cids.lname"/>
+                </div>
+                <div class="form-group">
+                    <label for="Name">วันเกิด</label>
+                    <InputText class="form-control" @bind-Value="cids.birthDate"/>
+                </div>
+                <div class="form-group">
+                    <label for="Name">เพศ</label>
+                    <InputText class="form-control" @bind-Value="cids.sex"/>
+                </div>
+            </EditForm>
+        </div>
+    </tbody>
+    </table>
+    }
+
+@code {
+    private string? InputValue {get; set;}
+    //private List<Cid>? cids {get; set;} new 
+    @* public List<Cid> cids {get; set;} = new (); *@
+    public Cid cids {get; set;} = new();
+    private async void Click()
+    {  
+        @* var x = new Cid();
+        x = await Http.GetFromJsonAsync("api/smartcard/read-card-only?readImageFlag=false");
+        //cids =  *@
+        cids = await ServiceHelper.GetCid();
+    }
+    
+}
