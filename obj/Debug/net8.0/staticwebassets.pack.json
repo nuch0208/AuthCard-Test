@@ -1,23 +1,23 @@
 {
   "Files": [
     {
-      "Id": "c:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AuthenCard.bundle.scp.css",
+      "Id": "C:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AuthenCard.bundle.scp.css",
       "PackagePath": "staticwebassets\\AuthenCard.bundle.scp.css"
     },
     {
-      "Id": "c:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\app.css",
+      "Id": "C:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\app.css",
       "PackagePath": "staticwebassets\\app.css"
     },
     {
-      "Id": "c:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Id": "C:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\bootstrap\\bootstrap.min.css",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Id": "c:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Id": "C:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "PackagePath": "staticwebassets\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Id": "c:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\favicon.png",
+      "Id": "C:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\favicon.png",
       "PackagePath": "staticwebassets\\favicon.png"
     },
     {
