@@ -30,3 +30,4 @@ C:\Users\Admin\Desktop\AuthenCard\obj\Debug\net8.0\ref\AuthenCard.dll
 C:\Users\Admin\Desktop\AuthenCard\obj\Debug\net8.0\AuthenCard.csproj.AssemblyReference.cache
 C:\Users\Admin\Desktop\AuthenCard\bin\Debug\net8.0\Newtonsoft.Json.dll
 C:\Users\Admin\Desktop\AuthenCard\obj\Debug\net8.0\AuthenCard.csproj.Up2Date
+C:\Users\Admin\Desktop\AuthenCard\obj\Debug\net8.0\AuthenCard.sourcelink.json

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "GYl2BJuQ4HXGJ0ljPsLLrkWoWP6RMH6hhx43GHg8cXc=",
+  "Hash": "P3LwPRrVQ4CONyzZjjvy4jt/NR5ptWY6eASarRKEMFg=",
   "Source": "AuthenCard",
   "BasePath": "_content/AuthenCard",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "AuthenCard\\wwwroot",
       "Source": "AuthenCard",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\",
       "BasePath": "_content/AuthenCard",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\bundle\\AuthenCard.styles.css",
+      "Identity": "c:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\bundle\\AuthenCard.styles.css",
       "SourceId": "AuthenCard",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
+      "ContentRoot": "c:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\bundle\\",
       "BasePath": "_content/AuthenCard",
       "RelativePath": "AuthenCard.styles.css",
       "AssetKind": "All",
@@ -33,13 +33,13 @@
       "AssetTraitValue": "ApplicationBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\bundle\\AuthenCard.styles.css"
+      "OriginalItemSpec": "c:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\bundle\\AuthenCard.styles.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AuthenCard.bundle.scp.css",
+      "Identity": "c:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AuthenCard.bundle.scp.css",
       "SourceId": "AuthenCard",
       "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
+      "ContentRoot": "c:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\",
       "BasePath": "_content/AuthenCard",
       "RelativePath": "AuthenCard.bundle.scp.css",
       "AssetKind": "All",
@@ -52,13 +52,13 @@
       "AssetTraitValue": "ProjectBundle",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AuthenCard.bundle.scp.css"
+      "OriginalItemSpec": "c:\\Users\\Admin\\Desktop\\AuthenCard\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\AuthenCard.bundle.scp.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\app.css",
+      "Identity": "c:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\app.css",
       "SourceId": "AuthenCard",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\",
       "BasePath": "_content/AuthenCard",
       "RelativePath": "app.css",
       "AssetKind": "All",
@@ -74,10 +74,10 @@
       "OriginalItemSpec": "wwwroot\\app.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\bootstrap\\bootstrap.min.css",
+      "Identity": "c:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\bootstrap\\bootstrap.min.css",
       "SourceId": "AuthenCard",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\",
       "BasePath": "_content/AuthenCard",
       "RelativePath": "bootstrap/bootstrap.min.css",
       "AssetKind": "All",
@@ -93,10 +93,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\bootstrap\\bootstrap.min.css.map",
+      "Identity": "c:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\bootstrap\\bootstrap.min.css.map",
       "SourceId": "AuthenCard",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\",
       "BasePath": "_content/AuthenCard",
       "RelativePath": "bootstrap/bootstrap.min.css.map",
       "AssetKind": "All",
@@ -112,10 +112,10 @@
       "OriginalItemSpec": "wwwroot\\bootstrap\\bootstrap.min.css.map"
     },
     {
-      "Identity": "C:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\favicon.png",
+      "Identity": "c:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\favicon.png",
       "SourceId": "AuthenCard",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\",
+      "ContentRoot": "c:\\Users\\Admin\\Desktop\\AuthenCard\\wwwroot\\",
       "BasePath": "_content/AuthenCard",
       "RelativePath": "favicon.png",
       "AssetKind": "All",

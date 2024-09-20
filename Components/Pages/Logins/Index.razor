@@ -1,0 +1,69 @@
+@page "/Login"
+@using AuthenCard.Models
+@using AuthenCard.Controller
+@using System.Net.Http.Json
+@inject HttpClient Http
+@rendermode InteractiveServer
+
+<PageTitle>scan CID card</PageTitle>
+<label>Username</label>
+<input value="@InputValue1" @onchange="((ChangeEventArgs __e) => InputValue1 = __e?.Value?.ToString())">
+<label>Password</label>
+<input value="@InputValue2" @onchange="((ChangeEventArgs __e) => InputValue2 = __e?.Value?.ToString())">
+ <button class="btn btn-primary" @onclick="Click" >Login</button> 
+
+    @if(logins == null)
+    {
+        <p><em>Loading....</em></p>
+    }
+    else
+    {
+        <table class="table">
+    @* <thead>
+        <th>เลขบัตรประจำตัวประชาชน</th>
+        <th>คำนำหน้า</th>
+        <th>ชื่อ</th>
+        <th>นามสกุล</th>
+        <th>เลขบัตรประจำตัวประชาชน</th>
+        <th>เพศ</th>
+    </thead> *@
+    <tbody>
+        @* @foreach(var client in cids)
+        {
+            <tr>
+                <td>@client.pid</td>
+                <td>@client.titleName</td>
+                <td>@client.fname</td>
+                <td>@client.lname</td>
+                <td>@client.birthDate</td>
+                <td>@client.sex</td>
+            </tr>
+        } *@
+        <div class="row">
+            <EditForm Model="@logins">
+                <div class="form-group">
+                    <label for="Name">username</label>
+                    <InputText class="form-control" @bind-Value="logins.loginname"/>
+                </div>
+                <div class="form-group">
+                    <label for="Name">password</label>
+                    <InputText class="form-control" @bind-Value="logins.passweb"/>
+                </div>
+            </EditForm>
+        </div>
+    </tbody>
+    </table>
+    }
+
+@code {
+    public string InputValue1 {get; set;}
+    public string InputValue2 {get; set;}
+    public LoginHos logins {get; set;} = new();
+    public async void Click()
+    {  
+        var username = InputValue1;
+        var password = InputValue2;
+        logins = await ServiceHelper2.GetLogin(username, password);
+    }
+    
+}

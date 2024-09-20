@@ -4,28 +4,26 @@ using Newtonsoft.Json.Linq;
 
 namespace AuthenCard.Controller
 {
-    public class ServiceHelper
+    public class ServiceHelper2
     {
-        private static Uri DataBaseAddress {get; set;} = new Uri("http://localhost:8189");
-        public async static Task<Cid> GetCid()
+        private static Uri DataBaseAddress {get; set;} = new Uri("http://localhost:5094");
+        public async static Task<LoginHos> GetLogin(string username, string password)
         {
-            //var param = new Dictionary<string, string>();
-            // param.Add("","");
-            //var content = new FormUrlEncodedContent(param);
+            
 
             var client = new HttpClient();
             client.BaseAddress = DataBaseAddress;
-            var response = await client.GetAsync("api/smartcard/read-card-only?readImageFlag=false");
+            var response = await client.GetAsync("api/Hos/getUser?uname=" + username+ "&para=" + password);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
         {
             var json = await response.Content.ReadAsStringAsync();
             //return  JsonConvert.DeserializeObject<List<Cid>>(json);
             // return JArray.Parse(json).ToObject<List<Cid>>();
-            return JsonConvert.DeserializeObject<Cid>(json);
+            return JsonConvert.DeserializeObject<LoginHos>(json);
              
 
         }
-        else return new Cid();
+        else return new LoginHos();
         }
     }
 }
