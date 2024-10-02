@@ -1,0 +1,95 @@
+@page "/cidclaim"
+@using AuthenCard.Models
+@using AuthenCard.Controller
+@using System.Net.Http.Json
+@using System.Text.Json.Nodes
+@inject HttpClient Http
+@rendermode InteractiveServer
+@inject HttpClient http
+@inject NavigationManager navManager
+
+<PageTitle>scan CID card</PageTitle>
+@* <input value="@InputValue" @onchange="((ChangeEventArgs __e) => InputValue = __e?.Value?.ToString())"> *@
+ <button class="btn btn-primary" @onclick="Click" >สแกนบัตร</button> 
+
+    @if(cid2s == null)
+    {
+        <p><em>Loading....</em></p>
+    }
+    else
+    {
+        <table class="table">
+    <tbody>
+        <div class="row">
+            <EditForm Model="@cid2s">
+                <div class="form-group">
+                    <label for="Name">เลขบัตรประชาชน</label>
+                    <InputText class="form-control" @bind-value="cid2s.pid" disabled/>
+                </div>
+                <div class="form-group">
+                    <label for="Name">ClaimType</label>
+                    <Input class="form-control" @bind="ClaimData.ClaimType"/>
+                </div>
+                <div class="form-group">
+                    <label for="Name">mobile</label>
+                    <Input class="form-control" @bind="ClaimData.mobile"/>
+                </div>
+                <div class="form-group">
+                    <label for="Name">CorrelationId</label>
+                    <InputText class="form-control" @bind-value="cid2s.correlationId" disabled/>
+                </div>
+                <div class="form-group">
+                    <label for="Name">hn</label>
+                    <Input class="form-control" @bind="ClaimData.hn"/>
+                </div>
+                <div class="form-group">
+                    <label for="Name">hcode</label>
+                    <Input class="form-control" @bind="ClaimData.hcode"/>
+                </div>
+            </EditForm>
+            <div class="offset-md-4 col-md-4 d-grid">
+                <button class="btn btn-primary" @onclick="SaveClient">Submit</button>
+            </div>
+        </div>
+    </tbody>
+    </table>
+    }
+
+@code {
+    public Claim ClaimData {get; set;} = new();
+    private string? InputValue {get; set;}
+    public Cid2 cid2s {get; set;} = new();
+
+     public JsonNode Errors {set; get;} = new JsonObject();
+
+    private async void Click()
+    {  
+        cid2s = await ServiceHelper.GetCidClaim();
+    }
+
+    protected async Task SaveClient()
+    {
+        var response = await http.PostAsJsonAsync("http://localhost:8189/api/nhso-service/confirm-save", ClaimData);
+
+        if (response.IsSuccessStatusCode)
+        {
+            navManager.NavigateTo("/");
+        }
+        else
+        {
+            var strResponse = await response.Content.ReadAsStringAsync();
+            Console.WriteLine("Json Response: \n" + strResponse);
+
+            try
+            {
+                var jsonResponse = JsonNode.Parse(strResponse);
+                Errors = jsonResponse?["errors"] ?? new JsonObject();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception : " + ex.Message);
+            }
+        }
+    }
+    
+}

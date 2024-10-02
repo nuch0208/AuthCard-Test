@@ -17,15 +17,30 @@ namespace AuthenCard.Controller
             client.BaseAddress = DataBaseAddress;
             var response = await client.GetAsync("api/smartcard/read-card-only?readImageFlag=false");
             if (response.StatusCode == System.Net.HttpStatusCode.OK)
-        {
-            var json = await response.Content.ReadAsStringAsync();
-            //return  JsonConvert.DeserializeObject<List<Cid>>(json);
-            // return JArray.Parse(json).ToObject<List<Cid>>();
-            return JsonConvert.DeserializeObject<Cid>(json);
-             
-
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                //return  JsonConvert.DeserializeObject<List<Cid>>(json);
+                // return JArray.Parse(json).ToObject<List<Cid>>();
+                return JsonConvert.DeserializeObject<Cid>(json);
+            }
+            
+            else return new Cid();
         }
-        else return new Cid();
+
+        public async static Task<Cid2> GetCidClaim()
+        {
+            var client = new HttpClient();
+            client.BaseAddress = DataBaseAddress;
+            var response = await client.GetAsync("api/smartcard/read?readImageFlag=false");
+            if (response.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                var json = await response.Content.ReadAsStringAsync();
+                //return  JsonConvert.DeserializeObject<List<Cid>>(json);
+                // return JArray.Parse(json).ToObject<List<Cid>>();
+                return JsonConvert.DeserializeObject<Cid2>(json);
+            }
+            
+            else return new Cid2();
         }
     }
 }
