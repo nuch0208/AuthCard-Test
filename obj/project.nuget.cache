@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "bWxWK6SsR9A=",
+  "dgSpecHash": "UDvYBmC0Q5OD8IS/FuoKQqjKnVHsrFHXDbuyqHcVd+4E41Vj7WWXtkCMnXVa4OnewYoA53Xn2m7ygSmKzeav8w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Admin\\Desktop\\AuthenCard\\AuthenCard.csproj",
+  "projectFilePath": "D:\\AuthenCard\\AuthenCard.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Admin\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+    "C:\\Users\\HP\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
   ],
   "logs": []
 }
