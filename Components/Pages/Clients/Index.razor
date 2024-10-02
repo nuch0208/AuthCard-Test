@@ -2,7 +2,7 @@
 @using AuthenCard.Models
 @using AuthenCard.Controller
 @using System.Net.Http.Json
-@inject HttpClient Http
+@inject HttpClient http
 @rendermode InteractiveServer
 
 <PageTitle>scan CID card</PageTitle>
@@ -73,6 +73,7 @@
     //private List<Cid>? cids {get; set;} new 
     @* public List<Cid> cids {get; set;} = new (); *@
     public Cid cids {get; set;} = new();
+    public Cid client;
     private async void Click()
     {  
         @* var x = new Cid();

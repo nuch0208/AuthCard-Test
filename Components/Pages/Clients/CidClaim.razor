@@ -3,69 +3,102 @@
 @using AuthenCard.Controller
 @using System.Net.Http.Json
 @using System.Text.Json.Nodes
-@inject HttpClient Http
-@rendermode InteractiveServer
 @inject HttpClient http
+@rendermode InteractiveServer
 @inject NavigationManager navManager
 
 <PageTitle>scan CID card</PageTitle>
-@* <input value="@InputValue" @onchange="((ChangeEventArgs __e) => InputValue = __e?.Value?.ToString())"> *@
- <button class="btn btn-primary" @onclick="Click" >สแกนบัตร</button> 
+ @* <button class="btn btn-primary" @onclick="Click" >สแกนบัตร</button>  *@
 
-    @if(cid2s == null)
-    {
-        <p><em>Loading....</em></p>
-    }
-    else
-    {
-        <table class="table">
-    <tbody>
+   
+       <div class="row">
+    <div class="col-lg-8">
+        <h1 class="mb-5">New Client</h1>
+        @if(client == null)
+        {
+            <p>loading...</p>
+        }else
+        {
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label">pid</label>
+            <div class="col-md-8">
+                <input id="pid" class="form-control" placeholder="@client.pid" @bind="ClaimData.pid">
+                <span class="text-danger">@Errors["pid"]?[0]</span>
+            </div>
+        </div>
+
+
+         <div class="row mb-3">
+            <label class="col-md-4 col-form-label">claimType</label>
+            <div class="col-md-8">
+                <input class="form-control" @bind="ClaimData.claimType">
+                <span class="text-danger">@Errors["claimType"]?[0]</span>
+            </div>
+        </div>
+
+         <div class="row mb-3">
+            <label class="col-md-4 col-form-label">mobile</label>
+            <div class="col-md-8">
+                <input class="form-control" @bind="ClaimData.mobile">
+                <span class="text-danger">@Errors["mobile"]?[0]</span>
+            </div>
+        </div>
+
+         <div class="row mb-3">
+            <label class="col-md-4 col-form-label">correlationId</label>
+            <div class="col-md-8">
+                <input class="form-control" placeholder="@client.correlationId" @bind="ClaimData.correlationId">
+                <span class="text-danger">@Errors["correlationId"]?[0]</span>
+            </div>
+        </div>
+
+         <div class="row mb-3">
+            <label class="col-md-4 col-form-label">hn</label>
+            <div class="col-md-8">
+                <input class="form-control" @bind="ClaimData.hn">
+                <span class="text-danger">@Errors["hn"]?[0]</span>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label">hcode</label>
+            <div class="col-md-8">
+                <input class="form-control" @bind="ClaimData.hcode">
+                <span class="text-danger">@Errors["hcode"]?[0]</span>
+            </div>
+        </div>
+
         <div class="row">
-            <EditForm Model="@cid2s">
-                <div class="form-group">
-                    <label for="Name">เลขบัตรประชาชน</label>
-                    <InputText class="form-control" @bind-value="cid2s.pid" disabled/>
-                </div>
-                <div class="form-group">
-                    <label for="Name">ClaimType</label>
-                    <Input class="form-control" @bind="ClaimData.ClaimType"/>
-                </div>
-                <div class="form-group">
-                    <label for="Name">mobile</label>
-                    <Input class="form-control" @bind="ClaimData.mobile"/>
-                </div>
-                <div class="form-group">
-                    <label for="Name">CorrelationId</label>
-                    <InputText class="form-control" @bind-value="cid2s.correlationId" disabled/>
-                </div>
-                <div class="form-group">
-                    <label for="Name">hn</label>
-                    <Input class="form-control" @bind="ClaimData.hn"/>
-                </div>
-                <div class="form-group">
-                    <label for="Name">hcode</label>
-                    <Input class="form-control" @bind="ClaimData.hcode"/>
-                </div>
-            </EditForm>
             <div class="offset-md-4 col-md-4 d-grid">
                 <button class="btn btn-primary" @onclick="SaveClient">Submit</button>
             </div>
+            <div class="col-md-4 d-grid">
+                <a class="btn btn-outline-primary" href="/Clients">Cancel</a>
+            </div>
         </div>
-    </tbody>
-    </table>
+    
     }
+    </div>
+    </div>
+
+        
 
 @code {
-    public Claim ClaimData {get; set;} = new();
+    public string pid;
+    public string correlationId;
+    public Claim ClaimData  = new Claim();
     private string? InputValue {get; set;}
-    public Cid2 cid2s {get; set;} = new();
+    public Cid cids {get; set;} = new();
+    private Cid2 client = new Cid2();
 
-     public JsonNode Errors {set; get;} = new JsonObject();
+    public JsonNode Errors {set; get;} = new JsonObject();
 
-    private async void Click()
+     protected override async Task OnInitializedAsync()
     {  
-        cid2s = await ServiceHelper.GetCidClaim();
+        
+        client = await http.GetFromJsonAsync<Cid2>("http://localhost:8189/api/smartcard/read?readImageFlag=false");
     }
+
 
     protected async Task SaveClient()
     {
