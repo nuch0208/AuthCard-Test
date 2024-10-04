@@ -102,13 +102,13 @@
 
     public JsonNode Errors {set; get;} = new JsonObject();
 
-     protected override async Task OnInitializedAsync()
+    protected override async Task OnInitializedAsync()
     {  
         
         client = await http.GetFromJsonAsync<Cid2>("http://localhost:8189/api/smartcard/read?readImageFlag=false");
         ClaimData.pid = client.pid;
         ClaimData.correlationId = client.correlationId;
-        Patient = await http.GetFromJsonAsync<Patient>("http://localhost:5094/api/Hos/GetId");
+        Patient = await http.GetFromJsonAsync<Patient>($"http://localhost:5094/api/Hos/GetId?Cid={client.pid}");
         ClaimData.mobile = Patient.Hometel;
         ClaimData.hn = Patient.Hn;
         ClaimData.hcode = Patient.Hcode;

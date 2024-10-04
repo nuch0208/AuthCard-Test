@@ -1,0 +1,105 @@
+@page "/new"
+@inject HttpClient Http
+@using AuthenCard.Models
+@inject NavigationManager NavigationManager
+
+
+<h3>Select List</h3>
+
+
+       <div class="row">
+    <div class="col-lg-8">
+        <h1 class="mb-5">New List</h1>
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label">pid</label>
+            <div class="col-md-8">
+                <input id="pid" class="form-control" @bind="id">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="offset-md-4 col-md-4 d-grid">
+                <button class="btn btn-primary" @onclick="Search">Search</button>
+            </div>
+            <div class="col-md-4 d-grid">
+                <a class="btn btn-outline-primary" href="/">Cancel</a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Pname</th>
+                <th>Fname</th>
+                <th>Lname</th>
+                <th>Hn</th>
+                <th>Hometel</th>
+                <th>Hcode</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                <tr>
+                    <td>@patients.Pname</td>
+                    <td>@patients.Fname</td>
+                    <td>@patients.Lname</td>
+                    <td>@patients.Hn</td>
+                    <td>@patients.Hometel</td>
+                    <td>@patients.Hcode</td>
+                    @* <td><button class="btn btn-primary" @onclick="@(() => EditGame(@patient.Id))">Edit</button></td>
+                    <td><button class="btn btn-danger" @onclick="@(() => DeleteGame(@patient.Cid))">Delete</button></td> *@
+                </tr>
+            
+        </tbody>
+    </table>
+
+
+<button class="btn btn-primary">Add a new game</button>
+
+@code{
+    public string id;
+    public string patient;
+    Patient patients = new ();
+
+  
+     public async Task Search()
+    {
+        
+
+    }
+
+    protected override async Task OnInitializedAsync()
+    {  
+        var patient = await Http.GetFromJsonAsync<Patient>($"http://localhost:5094/api/Hos/GetId?Cid={id}");
+        if (patient is not null)
+            patients = patient;
+      
+    }
+
+    void AddGame()
+    {
+
+        NavigationManager.NavigateTo("/");
+    }
+
+    @* void EditGame(int id)
+    {
+        NavigationManager.NavigateTo($"/edit-game/{id}");
+    }
+
+    async Task DeleteGame(int id)
+    {
+        await Http.DeleteAsync($"api/videogames/{id}");
+        await LoadGames();
+        
+    }
+ *@
+    async Task LoadGames()
+    {
+        
+    }
+}
